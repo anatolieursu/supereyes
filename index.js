@@ -25,3 +25,17 @@ document.getElementById("speed_range").addEventListener("change", (e) => {
     clearInterval(the_interval)
     setTheInt()
 })
+
+const button_manage_time = document.getElementById("manage_time");
+button_manage_time.addEventListener("click", () => {
+    setInterval(() => {
+        let current_time_seconds = document.getElementById("the_time").textContent;
+
+        const time_in_seconds = parseInt(current_time_seconds) + 1;
+        document.getElementById("the_time").textContent = time_in_seconds;
+
+        let factor = Math.pow(10, 1);
+        // Math.floor(num * factor) / factor;
+        document.getElementById("time_in_mins").textContent = Math.floor(((time_in_seconds/60) * factor)) / factor;
+    }, 1000)
+})
